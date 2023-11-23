@@ -348,6 +348,9 @@ button:focus:not(:focus-visible) {
   outline: 0;
 }
 
+.nowrap {
+    display: inline-block;
+}
 input,
 button,
 select,
