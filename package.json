@@ -1,22 +1,15 @@
 {
-  "name": "python-blog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miguel-ossa/python-blog.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/miguel-ossa/python-blog"
-  },
-  "homepage": "https://github.com/miguel-ossa/python-blog",
-  "dependencies": {
-    "express": "^4.18.2"
+    "version": "2",
+    "builds": [
+        {
+            "src": "*.py",
+            "use": "@miguel-ossa/now-flask"
+        }
+    ],
+    "routes": [
+        {
+            "src": "(.*)",
+            "dest": "main.py"
+        }
+    ]
   }
-}
