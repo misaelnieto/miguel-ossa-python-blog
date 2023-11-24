@@ -1,13 +1,13 @@
 {
   "cleanUrls": true,
   "functions": {
-    "api/wsgi.py":{
+    "api/index.py":{
     }
   },
   "rewrites": [
     {
       "source": "/",
-      "destination": "/api/wsgi.py"
+      "destination": "/api/index.py"
     }
   ]
 }
