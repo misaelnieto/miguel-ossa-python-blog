@@ -114,10 +114,7 @@ def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         # If id is not 1 then return abort with 403 error
-        if current_user.id != 1:
-            return abort(403)
-        # Otherwise continue with the route function
-        return f(*args, **kwargs)
+        return abort(403) if current_user.id != 1 else f(*args, **kwargs)
 
     return decorated_function
 
@@ -130,8 +127,7 @@ def register():
 
         # Check if user email is already present in the database.
         result = db.session.execute(db.select(User).where(User.email == form.email.data))
-        user = result.scalar()
-        if user:
+        if user := result.scalar():
             # User already exists
             flash("You've already signed up with that email, log in instead!")
             return redirect(url_for('login'))
